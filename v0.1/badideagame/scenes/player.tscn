@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://c52n2uh0hjn3m"]
+
+[ext_resource type="Script" uid="uid://dw7m65nsh8s37" path="res://scripts/player_controller.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://vtmabqep4v76" path="res://assets/models/cursor.png" id="2_g2els"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_3vyb7")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_u8vuu")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_3vyb7")
+
+[node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57798, 0)
+
+[node name="Camera" type="Camera3D" parent="Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.085, -0.23)
+fov = 59.0625
+
+[node name="InteractionRay" type="RayCast3D" parent="Neck/Camera"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.841841)
+target_position = Vector3(0, -50, 0)
+collision_mask = 8
+debug_shape_custom_color = Color(0.289802, 0.49654, 1, 1)
+
+[node name="GrabbingRangePoint" type="Node3D" parent="Neck/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.085, -0.23)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Neck/Camera"]
+
+[node name="CursorSprite" type="Control" parent="Neck/Camera/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Cursor" type="Sprite2D" parent="Neck/Camera/CanvasLayer/CursorSprite"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_g2els")
+vframes = 4
+
+[node name="Label" type="Label" parent="Neck/Camera/CanvasLayer/CursorSprite/Cursor"]
+offset_left = -9.25
+offset_top = 3.75
+offset_right = 88.75
+offset_bottom = 26.75
+scale = Vector2(0.2, 0.2)
+text = "IIIIIIIIIIIIIIIIIIII"

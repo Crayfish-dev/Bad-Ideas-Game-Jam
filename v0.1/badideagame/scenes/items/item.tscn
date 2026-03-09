@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://re5f8s02001k"]
+
+[ext_resource type="Script" uid="uid://6g74gxcijvkd" path="res://scripts/item_class.gd" id="1_xhhhv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4gq7n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4gq7n"]
+
+[node name="Item" type="RigidBody3D"]
+collision_layer = 8
+center_of_mass_mode = 1
+script = ExtResource("1_xhhhv")
+
+[node name="TestModel" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("BoxMesh_4gq7n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("BoxShape3D_4gq7n")
