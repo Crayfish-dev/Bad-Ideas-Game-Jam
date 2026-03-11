@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://kjk6beppuwtm"]
+
+[ext_resource type="PackedScene" uid="uid://c52n2uh0hjn3m" path="res://scenes/player.tscn" id="1_ryjsw"]
+[ext_resource type="PackedScene" uid="uid://ddqkudcxqpivb" path="res://scenes/box.tscn" id="3_l6grw"]
+[ext_resource type="PackedScene" uid="uid://djlcbxrat0nig" path="res://scenes/delivery_area.tscn" id="4_3dx25"]
+[ext_resource type="PackedScene" uid="uid://bt6pwovbh6t85" path="res://scenes/map_components/wall.tscn" id="4_nuoa6"]
+[ext_resource type="PackedScene" uid="uid://c4rs2pq1xwhjd" path="res://scenes/map_components/window.tscn" id="5_nuoa6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ryjsw"]
+sky_horizon_color = Color(1.08926, 1.12524, 1.23869, 1)
+ground_bottom_color = Color(0.508172, 0.583101, 0.9409, 1)
+ground_horizon_color = Color(1.08926, 1.12524, 1.23869, 1)
+
+[sub_resource type="Sky" id="Sky_pcu7d"]
+sky_material = SubResource("ProceduralSkyMaterial_ryjsw")
+
+[sub_resource type="Environment" id="Environment_l6grw"]
+background_mode = 2
+sky = SubResource("Sky_pcu7d")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nhxv8"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nhxv8"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="Testing" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l6grw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.737666, 0.675166, 0, -0.675165, -0.737666, 0, 0, 0)
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_blur = 0.1
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("PlaneMesh_nhxv8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nhxv8")
+
+[node name="Player" parent="." instance=ExtResource("1_ryjsw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 0)
+
+[node name="Box" parent="." instance=ExtResource("3_l6grw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62118, 0, 8.05444)
+
+[node name="DeliveryArea" parent="." instance=ExtResource("4_3dx25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.421, 0, -4.425)
+
+[node name="Wall" parent="." instance=ExtResource("4_nuoa6")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 5.683, -0.07, 6.062)
+
+[node name="Window" parent="." instance=ExtResource("5_nuoa6")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 8.81791, -0.07, 6.03607)
