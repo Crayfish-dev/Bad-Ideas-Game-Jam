@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://djlcbxrat0nig"]
+
+[ext_resource type="Script" uid="uid://bbvyj4whck0xy" path="res://scripts/delivery_area.gd" id="1_xknl7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jdxdc"]
+
+[node name="DeliveryArea" type="Area3D"]
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_xknl7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_jdxdc")
+debug_color = Color(0.975652, 0.157896, 1.92523e-07, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

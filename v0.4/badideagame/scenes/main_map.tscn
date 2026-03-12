@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://cb2a6rng7bms1"]
+
+[ext_resource type="PackedScene" uid="uid://dvn01a4dk31am" path="res://scenes/map_components/floor.tscn" id="1_whrjg"]
+[ext_resource type="PackedScene" uid="uid://djlcbxrat0nig" path="res://scenes/delivery_area.tscn" id="2_eqscl"]
+[ext_resource type="PackedScene" uid="uid://c4rs2pq1xwhjd" path="res://scenes/map_components/window.tscn" id="2_kdyc3"]
+[ext_resource type="PackedScene" uid="uid://ctqk50s3l15gu" path="res://scenes/map_components/fancy_wall.tscn" id="3_4synu"]
+[ext_resource type="PackedScene" uid="uid://ddqkudcxqpivb" path="res://scenes/box.tscn" id="3_uxg3y"]
+[ext_resource type="PackedScene" uid="uid://bt6pwovbh6t85" path="res://scenes/map_components/wall.tscn" id="4_cyf2o"]
+[ext_resource type="PackedScene" uid="uid://c52n2uh0hjn3m" path="res://scenes/player.tscn" id="4_uxg3y"]
+[ext_resource type="PackedScene" uid="uid://y8bjvsai8rav" path="res://scenes/npcs/npc.tscn" id="8_64gt2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uxg3y"]
+sky_horizon_color = Color(1.04598, 1.07831, 1.20018, 1)
+ground_bottom_color = Color(0.475191, 0.535519, 0.927001, 1)
+ground_horizon_color = Color(1.04598, 1.07831, 1.20018, 1)
+
+[sub_resource type="Sky" id="Sky_kdyc3"]
+sky_material = SubResource("ProceduralSkyMaterial_uxg3y")
+
+[sub_resource type="Environment" id="Environment_4synu"]
+background_mode = 2
+sky = SubResource("Sky_kdyc3")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="MainMap" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4synu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.999986, -0.00370244, 0.00370244, 0, 0.707107, 0.707107, -0.00523604, 0.707097, -0.707097, 0, 0, 0)
+light_energy = 1.2
+shadow_enabled = true
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Floor" parent="Map" instance=ExtResource("1_whrjg")]
+
+[node name="Floor2" parent="Map" instance=ExtResource("1_whrjg")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 3)
+
+[node name="Floor3" parent="Map" instance=ExtResource("1_whrjg")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 3, 0, 0)
+
+[node name="Floor4" parent="Map" instance=ExtResource("1_whrjg")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 3, 0, 3)
+
+[node name="Floor5" parent="Map" instance=ExtResource("1_whrjg")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 6, 0, 3)
+
+[node name="Floor6" parent="Map" instance=ExtResource("1_whrjg")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 6, -2.38419e-07, 0)
+
+[node name="Window" parent="Map" instance=ExtResource("2_kdyc3")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 0, 0, -1)
+
+[node name="Window2" parent="Map" instance=ExtResource("2_kdyc3")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 6, 0, -1)
+
+[node name="FancyWall" parent="Map" instance=ExtResource("3_4synu")]
+transform = Transform3D(-0.8, 0, 6.99382e-08, 0, 0.8, 0, -6.99382e-08, 0, -0.8, 3, 0, -1)
+
+[node name="Wall" parent="Map" instance=ExtResource("4_cyf2o")]
+transform = Transform3D(-3.49691e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.49691e-08, 7.38813, 0, 0)
+
+[node name="DeliveryArea" parent="." instance=ExtResource("2_eqscl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.233529, 3.48235)
+
+[node name="Box" parent="." instance=ExtResource("3_uxg3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.777211, 3)
+
+[node name="Player" parent="." instance=ExtResource("4_uxg3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18851, 0.15, 1.68316)
+
+[node name="NPC" parent="." instance=ExtResource("8_64gt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -3)
+
+[node name="NPCStartingPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -3)
+
+[node name="NPCStoppingPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.48095)
+
+[node name="NPCLeavingPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -3)
