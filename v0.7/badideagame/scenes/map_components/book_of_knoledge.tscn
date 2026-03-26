@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=4 uid="uid://cfgbx47sr2lp5"]
+
+[ext_resource type="Script" uid="uid://cyh47acekdova" path="res://scripts/book_of_knoledge.gd" id="1_ch1v4"]
+[ext_resource type="Texture2D" uid="uid://cu34cfl8qpe0r" path="res://assets/models/Map/BookOfKnoledge_0.png" id="1_q2a1n"]
+[ext_resource type="PackedScene" uid="uid://bwuack3dr0ipi" path="res://scenes/map_components/eye.tscn" id="2_ch1v4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4v50t"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_q2a1n")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i165u"]
+_surfaces = [{
+"aabb": AABB(-0.528577, 0, -0.375, 1.09108, 0.229741, 0.75),
+"format": 34896613377,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAwAAAAIAAQAEAAMAAwAFAAAAAAAGAAEABQAGAAAABQAHAAYACAAHAAkACAAJAAoACgAJAAsADAAIAAoACwAEAAwADAAKAA0ACgALAA0ACwAMAA0ADgAPABAADgAPABAADgARAA8ADgARAA8ADwARABIADwARABIADwASABMADwASABMA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("VPGkRVUVAABU8QAAqeoAAFTxpEWp6gAABHykRanqAAAEfAAAqeoAAAR8pEVVFQAAVPEAAFUVAAAEfAAAVRUAAMcNjb5VFQAACIFxQVUVAADLEv//VRUAAAiBcUGp6gAAxw2NvqnqAADLEv//qeoAAP//AAD//wAABHwAAAAAAAD//wAAAAAAAAR8AAD//wAAAABf1v//AAAAAF/WAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_brn4q"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.528577, 0, -0.375, 1.09108, 0.229741, 0.75),
+"attribute_data": PackedByteArray("/3f/K/9P/y//T/8r/3f/L/93/1//V/9b/3f/W/9X/1//S/9j/yv/Z/8r/2P/S/9n/0//J/9vAAD/b/8n/08AAP8j/y8AAAAA/yMAAAAA/y//S/8v/ycAAP9LAAD/J/8v/1P/X/8r/1v/U/9b/yv/X/9T/4P/T/9j/1P/Y/9P/4P/d/9n/1f/Y/93/2P/V/9n/yf/WwAA/3sAAP9b/yf/e/8v/1cAAP8z/y//MwAA/1f/Y/9X/zP/M/9j/zP/M/9X"),
+"format": 34896613399,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0A"),
+"material": SubResource("StandardMaterial3D_4v50t"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("VPGkRVUV/79U8QAAqer/v1TxpEWp6v+/VPEAAFUV/79U8QAAqeoAgAR8pEWp6gCAVPGkRanqAIAEfAAAqeoAgAR8pEVVFf//VPEAAFUV//9U8aRFVRX//wR8AABVFf//BHykRanq/79U8aRFVRX/v1TxpEWp6v+/BHykRVUV/7///wAA////vwR8AAAAAP+///8AAAAA/78EfAAA////v///AAD///+/BHwAAAAA/7///wAAAAD/vwR8AAD///+/xw2NvqnqOcHLEv//VRU5wcsS//+p6jnBxw2NvlUVOcEIgXFBqerGsccNjb6p6saxyxL//6nqxrEEfAAAqerGsccNjb5VFf//CIFxQVUV///LEv//VRX//wR8AABVFf//yxL//1UVp80IgXFBqeqnzcsS//+p6qfNCIFxQVUVp80EfAAAAACnzQAAX9b//6fNAABf1gAAp80EfAAA//+nzQR8AAAAAKfNAABf1v//p80AAF/WAACnzQR8AAD//6fN/38AAP9/AAD/fwAA/38AAP9/////f////3////9/////f////3////9/////f///////f////3////9/////f////3////9/////f////3////9/////f////3////9/rpCg3q6QoN6ukKDerpCg3v////////////////////8vk8/sL5PP7C+Tz+wvk8/srMpWJazKViWsylYlrMpWJazKViWsylYlrMpWJazKViWsylYlrMpWJazKViWsylYl")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_i165u")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q2a1n"]
+size = Vector3(1, 0.429199, 1)
+
+[node name="BookOfKnoledge" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_ch1v4")
+_name = "book of knowledge"
+_description = "this book will tell you what to do"
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.984808, -0.165611, -0.052217, 0.173648, 0.939228, 0.296137, -1.86265e-09, -0.300706, 0.953717, 0, 0.21875, 0)
+mesh = SubResource("ArrayMesh_brn4q")
+skeleton = NodePath("")
+
+[node name="Eye" parent="." instance=ExtResource("2_ch1v4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220333, 0.344727, -0.152585)
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2854, 0)
+shape = SubResource("BoxShape3D_q2a1n")

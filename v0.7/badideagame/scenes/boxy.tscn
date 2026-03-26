@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://co4n77cjwfvit"]
+
+[ext_resource type="Script" uid="uid://6g74gxcijvkd" path="res://scripts/item_class.gd" id="1_b1yoe"]
+[ext_resource type="AudioStream" uid="uid://bpxu23miln6ta" path="res://assets/SFX/item_pop.wav" id="2_k66um"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xr7tc"]
+streams_count = 1
+stream_0/stream = ExtResource("2_k66um")
+
+[node name="Boxy" type="RigidBody3D"]
+script = ExtResource("1_b1yoe")
+_name = "boxy"
+_description = "dosen't want to be picked up"
+metadata/_custom_type_script = "uid://6g74gxcijvkd"
+
+[node name="PopSound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_xr7tc")

@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=4 uid="uid://cba5ds2v7uukm"]
+
+[ext_resource type="Script" uid="uid://6g74gxcijvkd" path="res://scripts/item_class.gd" id="1_3k7mx"]
+[ext_resource type="Texture2D" uid="uid://kxepwod52lg4" path="res://assets/models/Book_0.png" id="2_k3vm4"]
+[ext_resource type="AudioStream" uid="uid://bpxu23miln6ta" path="res://assets/SFX/item_pop.wav" id="3_4l2gc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbyn4"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_k3vm4")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_evi2h"]
+_surfaces = [{
+"aabb": AABB(-0.3125, 0, -0.34375, 0.59375, 0.125, 0.6875),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAgAEAAMAAQAFAAIAAAAGAAEABwAGAAAAAQAIAAYAAQAJAAgABwAKAAYAAQALAAUACwAKAAcACwAHAAUA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/////wAAAAD//wAA//8AAP///////wAAAAD//wAAAAAAAP////8AAHkN/////wAA//8AAAAAAAB5Df//AAAAAAAAAAAAAAAAAAAAAP//AAB5DQAAAAAAAHkNAAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4l2gc"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.3125, 0, -0.34375, 0.59375, 0.125, 0.6875),
+"attribute_data": PackedByteArray("/1f/XwAA/28AAP9f/1f/b/+3/2//X/9f/7f/X/9f/2//R/+HAAD/d/9H/3cAAP+H/5f/d/9P/4f/T/93/5f/h/9P/1cAAAAA/08AAAAA/1f/p/9X/1cAAP+nAAD/V/9X"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_pbyn4"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA/7///wAA////v/////////+///8AAAAA/795DQAA////v3kN//8AAP+/eQ3//////795DQAAAAD/v///AAD//wCAeQ3/////AID///////8AgHkNAAD//wCAeQ3//wAA/////wAAAAD///////8AAP//eQ0AAAAA////////////vwAA//8AAP+//////wAA/78AAP//////v///AAD///+/AAAAAAAA/7///wAAAAD/vwAAAAD///+//38AAP9/AAD/fwAA/38AAP9/////f////3////9/////f////3////9/////f////3////9/////f////3///////3////9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_evi2h")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3e67c"]
+points = PackedVector3Array(-0.292945, 0, -0.320152, 0.277639, 0.124491, 0.3438, 0.257317, 0, 0.320152, -0.317957, 0.125514, 0.349257, 0.277639, 0.124491, -0.3438, -0.317957, 0.125514, -0.349257, 0.257317, 0, -0.320152, -0.292945, 0, 0.320152)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3e67c"]
+streams_count = 1
+stream_0/stream = ExtResource("3_4l2gc")
+
+[node name="Book" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_3k7mx")
+_name = "book"
+_description = "paper with leather and ink"
+metadata/_custom_type_script = "uid://6g74gxcijvkd"
+
+[node name="Model" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_4l2gc")
+skeleton = NodePath("")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_3e67c")
+
+[node name="PopSound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_3e67c")

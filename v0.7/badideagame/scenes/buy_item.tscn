@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://bkpx6gbr03psa"]
+
+[ext_resource type="Script" uid="uid://bl1wjoi1i75gq" path="res://scripts/buy_item.gd" id="1_7ru6u"]
+[ext_resource type="Texture2D" uid="uid://crsfmif22rjat" path="res://assets/dialogue_container.png" id="1_d3emg"]
+[ext_resource type="Texture2D" uid="uid://cip8yiftx381a" path="res://assets/buy_normal.png" id="2_igy3j"]
+[ext_resource type="Texture2D" uid="uid://byvotp8h1g0uo" path="res://assets/buy_click.png" id="3_n4c5u"]
+[ext_resource type="Texture2D" uid="uid://bx7iml03lapkm" path="res://assets/buy_hover.png" id="4_tbkem"]
+[ext_resource type="Texture2D" uid="uid://cxwwtwv0g6vaf" path="res://assets/buy_disabled.png" id="5_7ru6u"]
+[ext_resource type="Texture2D" uid="uid://rwlq55g312fp" path="res://assets/small_box.png" id="6_n4c5u"]
+[ext_resource type="FontFile" uid="uid://dvi3njkg60hag" path="res://assets/fonts/ska_cubic01_75_ce/SKA_cubic01_75_CE - Copia.TTF" id="7_tbkem"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ru6u"]
+font = ExtResource("7_tbkem")
+font_size = 8
+
+[node name="BuyItem" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7ru6u")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_d3emg")
+
+[node name="Buy" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 6.0
+offset_right = 186.0
+offset_bottom = 46.0
+texture_normal = ExtResource("2_igy3j")
+texture_pressed = ExtResource("3_n4c5u")
+texture_hover = ExtResource("4_tbkem")
+texture_disabled = ExtResource("5_7ru6u")
+texture_focused = ExtResource("4_tbkem")
+
+[node name="Sprite" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -12.0
+offset_right = 63.0
+offset_bottom = 52.0
+texture = ExtResource("6_n4c5u")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -12.0
+offset_right = 42.0
+offset_bottom = 11.0
+text = "name: small box    price: 10$"
+label_settings = SubResource("LabelSettings_7ru6u")
+
+[connection signal="pressed" from="Buy" to="." method="_on_buy_pressed"]

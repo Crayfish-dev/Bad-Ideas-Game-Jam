@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://y8bjvsai8rav"]
+
+[ext_resource type="Script" uid="uid://bu6nbm0756dft" path="res://scripts/npc_class.gd" id="1_nh2m4"]
+[ext_resource type="PackedScene" uid="uid://dcdfx163q7sfm" path="res://scenes/special items/sword.tscn" id="2_m5fb5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nh2m4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nh2m4"]
+
+[node name="NPC" type="CharacterBody3D"]
+collision_layer = 64
+collision_mask = 25
+script = ExtResource("1_nh2m4")
+items = Array[PackedScene]([ExtResource("2_m5fb5")])
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_nh2m4")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_nh2m4")
