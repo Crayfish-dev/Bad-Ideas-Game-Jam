@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=4 uid="uid://38ij7p2g7uoh"]
+
+[ext_resource type="Script" uid="uid://6g74gxcijvkd" path="res://scripts/item_class.gd" id="1_856k6"]
+[ext_resource type="Texture2D" uid="uid://ck0odynalc4sc" path="res://assets/models/Items/SaltBag_0.png" id="2_1defx"]
+[ext_resource type="AudioStream" uid="uid://bpxu23miln6ta" path="res://assets/SFX/item_pop.wav" id="3_8m2pc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gldx"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_1defx")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bltj7"]
+_surfaces = [{
+"aabb": AABB(-0.125, -0.125, -0.125, 0.25, 0.3, 0.25),
+"format": 34896613377,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAgAEAAMAAgAFAAQAAgABAAUABAAGAAMAAAADAAcAAwAGAAcACAABAAAACAAAAAcABQAJAAQACQAGAAQABQABAAoABQAKAAkACwABAAgACgABAAsACAAHAAwABwAGAAwACwAIAAwADQAGAAkACgANAAkADAAGAA0ACgALAA0ACwAMAA0ADgAPABAAEAAPABEAEgAPAA4AEAATAA4ADgATABIAEQATABAAFAAPABIAEgATABQAEQAPABUAFQATABEAFQAPABQAFAATABUA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 22,
+"vertex_data": PackedByteArray("/7//n///AAD/f1TV/38AAP///5//fwAA//9VNf9/AAD/v1U1AAAAAP+//58AAAAA/38AAP9/AAD/v1U1//8AAP8//5///wAA/z9VNQAAAAD/P/+fAAAAAAAA/5//fwAA/z9VNf//AAAAAFU1/38AAOXJ////fwAA/3////9/AADypP///z8AAAxb////PwAA8qT///+/AAD/f1SV/38AAAxb////vwAAGTb///9/AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8m2pc"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.125, -0.125, -0.125, 0.25, 0.3, 0.25),
+"attribute_data": PackedByteArray("/4fGU/93/y9Sm6s1/x//f/8//5//H/+f/z//f1JLVFr/J/9f/zc4PKxUqwX/dwAA/2fGIwAA/3//H/+fAAD/n/8f/3//FzkM/yf/L6wEVCr/Z8Yj/3cAAP+HxiP/L/9f/0//f/8v/3//T/9f/zc5DP8n/y//FzkM/4fGI/93AABSm6sF/z//f/9f/5//P/+f/1//f1JLVCr/J/8v/zc5DKxUqzX/d/8v/2fGU/9v/1//j/9//2//f/+P/1//Fzg8/yf/X6wEVFr/Z8ZT/3f/L/+HxlP/T/9f/2//f/9P/3//b/9f/zc4PP8n/1//Fzg8eSr/b/8X/288If9f4xGqrwAA/88AAAurPCH/f/8X/295Kv9v/7+rDxuu/y8brgwLwg7/f/8X/288If9/8Ziqjw2H/68NhwuLhgX/b/8X/2/CDv9/8rT/r/+P/69UsBuewg7/X/8X/2+GBf9v/6+qXxue/38bngxbPCH/X/8X/2/CDv9f8Xiqjw1n/68NZwuL"),
+"format": 34896613399,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUAAwAGAAQABwAIAAkACgALAAwADQAOAA8ADQAQAA4AEQASABMAFAAVABYAFwAYABkAFwAaABgAGwAcAB0AHgAfACAAIQAiACMAIQAkACIAJQAmACcAKAApACoAKwAsAC0AKwAuACwALwAwADEAMgAzADQANQA2ADcANQA4ADYAOQA6ADsAPAA9AD4APwBAAEEAQgBDAEQARQBGAEcASABJAEoASwBMAE0ATgBPAFAAUQBSAFMAVABVAFYAVwBYAFkAWgBbAFwAXQBeAF8A"),
+"material": SubResource("StandardMaterial3D_6gldx"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 96,
+"vertex_data": PackedByteArray("/7//n///M7j/f1TV/38zuP///5//fzO4/7//n///G63//1U1/38brf+/VTX//xut////n/9/G63//1U1/38zuP9/AAD/fzO4/79VNf//M7j///+f/39K8P9/VNX/f0rw/7//nwAASvD///+f/3/j0v+/VTUAAOPS//9VNf9/49L/v/+fAADj0v+/VTUAAErw/38AAP9/SvD//1U1/39K8P+//58AAP///39U1f9/////P/+fAAD///+//58AAP///z9VNQAA////v1U1AAD///8//58AAP///z9VNQAA////fwAA/3////+/VTUAAP///z//nwAASvD/f1TV/39K8AAA/5//f0rw/z//nwAA49IAAFU1/3/j0v8/VTUAAOPSAAD/n/9/49IAAFU1/39K8P9/AAD/f0rw/z9VNQAASvAAAP+f/38zuP9/VNX/fzO4/z//n///M7gAAP+f/38brf8/VTX//xutAABVNf9/G63/P/+f//8brf8/VTX//zO4/38AAP9/M7gAAFU1/38zuP8//5///xut/39U1f9/G63/v/+f//8brf8//5///wCA/79VNf//AID/P1U1//8AgP+//5///wCA/79VNf//G63/fwAA/38brf8/VTX//xut5cn///9//7//f////3//v/Kk////P/+/8qT///8/l9T/f1SV/3+X1OXJ////f5fU8qT///+//7//f////3//v+XJ////f/+/5cn///9/HK3/f1SV/38crfKk////vxytDFv///+//7//f////3//v/Kk////v/+/8qT///+/d5X/f1SV/393lQxb////v3eVGTb///9//7//f////3//vwxb////v/+/DFv///+/98v/f1SV/3/3yxk2////f/fLDFv///8//7//f////3//vxk2////f/+/GTb///9/Qtn/f1SV/39C2Qxb////P0LZ8qT///8//7//f////3//vwxb////P/+/DFv///8/ov3/f1SV/3+i/fKk////P6L9KtToZCrU6GQq1Ohk/38AAP9/AAD/fwAA/38AABcbKlQXGypUFxsqVH5CNAp+QjQKfkI0Cv9/AAD/fwAA/38AAP9/AAAzioA9M4qAPTOKgD3/fxrP/38az/9/Gs//f////3////9/////f///47D//+Ow///jsP//y3V+wst1fsLLdX7C/3////9/////f////3///4C9yvWAvcr1gL3K9efk1Kvn5NSr5+TUq/9/////f////3////9////UKxab1CsWm9QrFpv///9/////f////3//f////3////9/////f///AAD/fwAA/38AAP9/////f////3////9/Emi2JhJotiYSaLYm////f////3////9/RFIZL0RSGS9EUhkv////f////3////9/wwkgs8MJILPDCSCz////f////3////9/TMyj8UzMo/FMzKPx////f////3////9/d2Eb/3dhG/93YRv/////f////3////9/EXQYIhF0GCIRdBgi")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_bltj7")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1defx"]
+radius = 0.109859
+height = 0.34839
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_egdfi"]
+streams_count = 1
+stream_0/stream = ExtResource("3_8m2pc")
+
+[node name="SaltBag" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 9
+mass = 0.3
+script = ExtResource("1_856k6")
+_name = "salt bag"
+_description = "NaCl in leather "
+metadata/_custom_type_script = "uid://6g74gxcijvkd"
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = SubResource("ArrayMesh_8m2pc")
+skeleton = NodePath("")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00151062, 0.22226, -0.022522)
+shape = SubResource("CapsuleShape3D_1defx")
+
+[node name="PopSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00151062, 0.22226, -0.022522)
+stream = SubResource("AudioStreamRandomizer_egdfi")
