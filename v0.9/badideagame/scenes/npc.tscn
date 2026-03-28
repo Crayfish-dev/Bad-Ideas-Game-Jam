@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://y8bjvsai8rav"]
+
+[ext_resource type="Script" uid="uid://bu6nbm0756dft" path="res://scripts/npc_class.gd" id="1_abqhh"]
+[ext_resource type="PackedScene" uid="uid://dcdfx163q7sfm" path="res://scenes/special items/sword.tscn" id="2_rv78h"]
+[ext_resource type="AudioStream" uid="uid://bs2ysl6kjom46" path="res://assets/SFX/youre-taking-too-long (1).mp3" id="3_rv78h"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nh2m4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nh2m4"]
+
+[node name="NPC" type="CharacterBody3D"]
+collision_layer = 64
+collision_mask = 25
+script = ExtResource("1_abqhh")
+items = Array[PackedScene]([ExtResource("2_rv78h")])
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_nh2m4")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_nh2m4")
+
+[node name="LateAudio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_rv78h")

@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=4 uid="uid://ckf0kgir3jibu"]
+
+[ext_resource type="Script" uid="uid://chrp1jppaaisp" path="res://scripts/paper_ball.gd" id="1_0ifk2"]
+[ext_resource type="Texture2D" uid="uid://cc24kdc25dxxu" path="res://assets/models/Items/PlayBall_0.png" id="2_fc0aj"]
+[ext_resource type="AudioStream" uid="uid://bpxu23miln6ta" path="res://assets/SFX/item_pop.wav" id="3_0ifk2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmw72"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_fc0aj")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6ui5c"]
+_surfaces = [{
+"aabb": AABB(-0.0625, -0.0625, -0.0625, 0.125, 0.125, 0.125),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAgABAAQAAgAEAAUAAgAFAAMABAAGAAUAAAADAAcABAAIAAYABAABAAgABQAGAAkAAwAFAAoABQAJAAoAAwAKAAsABwADAAsACQAMAAoACgAMAAsABgANAAkADQAMAAkABgAOAA0ACAAOAAYADgAPAA0ADwAMAA0ACAAQAA4ACAABABAADgARAA8AEAARAA4AEgAMAA8AEQASAA8AEAATABEAEAABABMAEQAUABIAEwAUABEAFQAMABIAFAAVABIAFgAMABUACwAMABYABwALABYAFwAWABUAFwAHABYAFAAXABUAEwAYABQAGAAXABQAEwABABgAGQAHABcAGAAZABcAGAABABkAGQAAAAcAGQABAAAA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray("fKWB2oHaAAD/f////38AAIHagdp8pQAA////fwS1AACB2oHagloAAP///3/6SgAABLX/fwAAAAAEtf9///8AAHylgdp9JQAAfKV9JX0lAACB2n0lgloAAIHafSV8pQAA/38AAP9/AACCWn0lfSUAAPpK/38AAAAAfSV9JYJaAACCWoHafSUAAAAA/3/6SgAAfSV9JXylAAB9JYHagloAAAAA/38EtQAAglp9JYHaAAB8pX0lgdoAAPpK/3///wAAfSWB2nylAACCWoHagdoAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0ifk2"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.0625, -0.0625, -0.0625, 0.125, 0.125, 0.125),
+"attribute_data": PackedByteArray("xwgGAv8P+AxRA6QJr3QAAP9//w++cv8PDn4AAL5y/x8Ofv8vr3T/L/9//x9RA2FI/w8NRccI/09RA6QJ/w/4DFUE9RJQA/9foA7/b18B/2+vDP9fX1H/H69c/y9PU/8voF7/H1UEED//Dw1FUQNhSFUE9RL/D/gMUAs3GfBx/z9Aff9P/2//T097/z//P/9fT0v/b/BB/29ATf9fUAvOOP8PDUVVBBA/UAs3Gf8P+AyvFDcZUDP/P6A+/09fMf9Przz/P18xAACvPP8PUDP/D6A+AACvFM44/w8NRVALzjivFDcZ/w/4DKob9RKvRP9//0//j75C/48OTv9/vgL/fw8O/4+vBP+P/w//f6obED//Dw1FrxTOOKob9RL/D/gMrhykCVAj/1+gLv9vXyH/b68s/19fUf8/r1z/T09T/0+gXv8/rhxhSP8PDUWqGxA/rhykCf8P+Aw4FwYC8CH/f0At/4//H/+PUCv/f/9f/19Pa/9v8GH/b0Bt/184F/9P/w8NRa4cYUjuEQAA/w/4DMcIBgJPUwAAoF7/D19R/w+vXAAAXzH/H688/y9QM/8voD7/H69swIP/Z/+PT2PAgw=="),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUAAwAGAAQABwAIAAkABwAKAAgACwAMAA0ADgAPABAAEQASABMAEQAUABIAFQAWABcAFQAYABYAGQAaABsAHAAdAB4AHwAgACEAHwAiACAAIwAkACUAIwAmACQAJwAoACkAKgArACwALQAuAC8ALQAwAC4AMQAyADMAMQA0ADIANQA2ADcAOAA5ADoAOwA8AD0AOwA+ADwAPwBAAEEAPwBCAEAAQwBEAEUARgBHAEgASQBKAEsASQBMAEoATQBOAE8ATQBQAE4AUQBSAFMAVABVAFYAVwBYAFkAVwBaAFgAWwBcAF0AWwBeAFwAXwBgAGEAYgBjAGQAZQBmAGcAZQBoAGYAaQBqAGsAaQBsAGoAbQBuAG8A"),
+"material": SubResource("StandardMaterial3D_hmw72"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 112,
+"vertex_data": PackedByteArray("fKWB2oHawvL/f////3/C8oHagdp8pcLyfKWB2oHalqP///9/BLWWowS1/3///5ajgdqB2nyllqMEtf9///+Wo4HafSV8pZajfKV9JYHalqP///9/BLWWo4HafSV8pcLy/38AAP9/wvJ8pX0lgdrC8oHagdp8pZ/x/3////9/n/GB2oHaglqf8YHagdp8pYzB////f/pKjMH///9/BLWMwYHagdqCWozB////fwS1jMGB2n0lglqMwYHafSV8pYzB////f/pKjMGB2n0lglqf8f9/AAD/f5/xgdp9JXyln/GB2oHaglq19v9/////f7X2fKWB2n0ltfaB2oHaglqk4AS1/38AAKTg////f/pKpOB8pYHafSWk4P///3/6SqTgfKV9JX0lpOCB2n0lglqk4AS1/38AAKTgfKV9JX0ltfb/fwAA/3+19oHafSWCWrX2fKWB2n0l////f////3///4Jagdp9Jf//fKWB2n0l///6Sv9/AAD//wS1/38AAP//glqB2n0l//8Etf9/AAD//4JafSV9Jf//fKV9JX0l///6Sv9/AAD//4JafSV9Jf///38AAP9///98pX0lfSX//4Jagdp9JbX2/3////9/tfZ9JYHaglq19oJagdp9JaTgAAD/f/pKpOD6Sv9/AACk4H0lgdqCWqTg+kr/fwAApOB9JX0lglqk4IJafSV9JaTgAAD/f/pKpOB9JX0lglq19v9/AAD/f7X2glp9JX0ltfZ9JYHaglqf8f9/////f5/xfSWB2nyln/F9JYHaglqMwQAA/38EtYzBAAD/f/pKjMF9JYHafKWMwQAA/3/6SozBfSV9JXyljMF9JX0lglqMwQAA/38EtYzBfSV9JXyln/H/fwAA/3+f8X0lfSWCWp/xfSWB2nylwvL/f////3/C8oJagdqB2sLyfSWB2nyllqP6Sv9///+WowAA/38EtZajglqB2oHalqMAAP9/BLWWo4JafSWB2pajfSV9JXyllqP6Sv9///+Wo4JafSWB2sLy/38AAP9/wvJ9JX0lfKXC8oJagdqB2p/4/3////9/n/h8pYHagdqf+IJagdqB2v+PBLX/f////4/6Sv9/////j3ylgdqB2v+P+kr/f////498pX0lgdr/j4JafSWB2v+PBLX/f////498pX0lgdr/r/9/AAD/f/+vglp9JYHa/6/XNVkE1zVZBNc1WQTEs5skxLObJMSzmyTEs5skZFvEM2RbxDNkW8QzZFvEM1iEKEpYhChKWIQoSlU8nghVPJ4IVTyeCG2kNhJtpDYSbaQ2Em2kNhLIbW0kyG1tJMhtbSTIbW0knoipQ56IqUOeiKlDcEWmBnBFpgZwRaYGGZw7CBmcOwgZnDsIGZw7CMR3GRzEdxkcxHcZHMR3GRylho46pYaOOqWGjjr/f7rM/3+6zP9/usz/f8Lq/3/C6v9/wur/f8LqO5X//zuV//87lf//O5X//0Sz//9Es///RLP//1l5cMVZeXDFWXlwxTqI5eM6iOXjOojl4zqI5ePlY8P35WPD9+Vjw/flY8P3jrpY+Y66WPmOulj5YHdVvGB3Vbxgd1W8NpKR2zaSkds2kpHbNpKR25FbyO2RW8jtkVvI7ZFbyO2pw2D3qcNg96nDYPeme9a1pnvWtaZ71rWapDrMmqQ6zJqkOsyapDrMOkxj2zpMY9s6TGPbOkxj2yfKpfsnyqX7J8ql++DOXgXgzl4F4M5eBf///3////9/////f////38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6ui5c")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uerej"]
+radius = 0.0756084
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uerej"]
+streams_count = 1
+stream_0/stream = ExtResource("3_0ifk2")
+
+[node name="PaperBall" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 9
+mass = 0.3
+script = ExtResource("1_0ifk2")
+_name = "paper ball"
+_description = "[E] to trow"
+metadata/_custom_type_script = "uid://6g74gxcijvkd"
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+mesh = SubResource("ArrayMesh_0ifk2")
+skeleton = NodePath("")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119394, 0)
+shape = SubResource("SphereShape3D_uerej")
+
+[node name="PopSound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_uerej")
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_0ifk2")
+max_db = 2.925
+pitch_scale = 0.2
+panning_strength = 0.5

@@ -1,0 +1,447 @@
+[gd_scene load_steps=44 format=3 uid="uid://c52n2uh0hjn3m"]
+
+[ext_resource type="Script" uid="uid://dw7m65nsh8s37" path="res://scripts/player_controller.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://mmv574a6kmkq" path="res://scripts/player_camera.gd" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://vtmabqep4v76" path="res://assets/cursor.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://50i4lbmy5ds1" path="res://assets/time.png" id="5_d2wvv"]
+[ext_resource type="FontFile" uid="uid://dvqk376sokbrv" path="res://assets/fonts/ska_cubic01_75_ce/SKA_cubic01_75_CE.TTF" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://ddqkudcxqpivb" path="res://scenes/small_box.tscn" id="6_a38lo"]
+[ext_resource type="Texture2D" uid="uid://wjj0fp3k3f6j" path="res://assets/quest_container.png" id="6_fjrip"]
+[ext_resource type="Texture2D" uid="uid://c53lyvviosfje" path="res://assets/back_timer.png" id="6_jej6c"]
+[ext_resource type="Texture2D" uid="uid://blk5uoeaufkbj" path="res://assets/money_container.png" id="6_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://rwlq55g312fp" path="res://assets/small_box.png" id="7_4ni07"]
+[ext_resource type="Texture2D" uid="uid://cdkhqck5nyf3m" path="res://assets/front_timer.png" id="7_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://ct1csd8rhvos5" path="res://assets/space.png" id="7_ur7pv"]
+[ext_resource type="PackedScene" uid="uid://sg1qsbw1uenr" path="res://scenes/long_box.tscn" id="8_l71n6"]
+[ext_resource type="Texture2D" uid="uid://crsfmif22rjat" path="res://assets/dialogue_container.png" id="8_smehm"]
+[ext_resource type="Texture2D" uid="uid://b3m47sn7nbm45" path="res://assets/long_box.png" id="9_ke2ow"]
+[ext_resource type="PackedScene" uid="uid://c1akxbry2pxwj" path="res://scenes/flask.tscn" id="10_dt7fs"]
+[ext_resource type="Texture2D" uid="uid://df0j3qyx1i84v" path="res://assets/crack_sprite.png" id="10_ke2ow"]
+[ext_resource type="Texture2D" uid="uid://c7qx32egmb4v8" path="res://assets/quest_completed.png" id="10_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://83k8ell1nl74" path="res://assets/eye.png" id="11_ujl30"]
+[ext_resource type="Texture2D" uid="uid://dhyxhs3omy4wu" path="res://assets/flask.png" id="11_wqfne"]
+[ext_resource type="Texture2D" uid="uid://wsfeawcb3opi" path="res://assets/hands/idle_hand.png" id="14_f1ej7"]
+[ext_resource type="Script" uid="uid://drg7xybd3rd0c" path="res://scripts/pause_screen.gd" id="14_wnwbv"]
+[ext_resource type="FontFile" uid="uid://dvi3njkg60hag" path="res://assets/fonts/ska_cubic01_75_ce/SKA_cubic01_75_CE - Copia.TTF" id="14_wqfne"]
+[ext_resource type="Script" uid="uid://c04kyx28orbsv" path="res://scripts/hand.gd" id="15_oprun"]
+[ext_resource type="Texture2D" uid="uid://cfopu5bqxvrbr" path="res://assets/hands/walking_hand.png" id="16_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://t41joomce2qb" path="res://assets/hands/grabbing_hand.png" id="17_qfm1y"]
+[ext_resource type="Texture2D" uid="uid://w1bdeq7je1w5" path="res://assets/dark.png" id="18_4r5pv"]
+[ext_resource type="Script" uid="uid://dkce2mjsv34is" path="res://scripts/ui.gd" id="18_60mlk"]
+[ext_resource type="Texture2D" uid="uid://unxabpxodvf8" path="res://assets/hands/pointing_hand.png" id="18_fulsm"]
+[ext_resource type="PackedScene" uid="uid://bkpx6gbr03psa" path="res://scenes/buy_item.tscn" id="20_60mlk"]
+[ext_resource type="Script" uid="uid://chm125scwpdc0" path="res://scripts/transition.gd" id="27_31cv2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
+
+[sub_resource type="Theme" id="Theme_wnwbv"]
+default_font = ExtResource("14_wqfne")
+
+[sub_resource type="LabelSettings" id="LabelSettings_dqkch"]
+font = ExtResource("5_qlg0r")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tuyoq"]
+font = ExtResource("5_qlg0r")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_smehm"]
+font = ExtResource("5_qlg0r")
+font_size = 8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("7_ur7pv")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("7_ur7pv")
+region = Rect2(0, 8, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3v2ag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ur7pv"]
+font = ExtResource("5_qlg0r")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g2els"]
+font = ExtResource("5_qlg0r")
+font_size = 32
+outline_size = 5
+outline_color = Color(0.0941176, 0.0784314, 0.145098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qhqgy"]
+font = ExtResource("5_qlg0r")
+outline_size = 5
+outline_color = Color(0.0941176, 0.0784314, 0.145098, 1)
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 2
+script = ExtResource("1_3vyb7")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_u8vuu")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_3vyb7")
+
+[node name="Neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57798, 0)
+
+[node name="Camera" type="Camera3D" parent="Neck"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.085, -0.23)
+fov = 59.0625
+script = ExtResource("2_dqkch")
+
+[node name="InteractionRay" type="RayCast3D" parent="Neck/Camera"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.841841)
+target_position = Vector3(0, -2.5, 0)
+collision_mask = 76
+debug_shape_custom_color = Color(0.289802, 0.49654, 1, 1)
+
+[node name="GrabbingRangePoint" type="Node3D" parent="Neck/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.085, -0.23)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Neck/Camera"]
+
+[node name="UI" type="Control" parent="Neck/Camera/CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+script = ExtResource("18_60mlk")
+metadata/_edit_use_anchors_ = true
+
+[node name="Dark" type="TextureRect" parent="Neck/Camera/CanvasLayer/UI"]
+modulate = Color(1, 1, 1, 0.494118)
+z_index = -2
+layout_mode = 0
+offset_left = -607.0
+offset_top = -463.0
+offset_right = 1663.0
+offset_bottom = 1312.0
+mouse_filter = 2
+texture = ExtResource("18_4r5pv")
+
+[node name="SmallBox" parent="Neck/Camera/CanvasLayer/UI" node_paths=PackedStringArray("pl") instance=ExtResource("20_60mlk")]
+layout_mode = 1
+offset_left = 55.0
+offset_top = 196.0
+offset_right = -920.0
+offset_bottom = -427.0
+scale = Vector2(2, 2)
+pl = NodePath("../../../../..")
+scene = ExtResource("6_a38lo")
+texture = ExtResource("7_4ni07")
+
+[node name="LongBox" parent="Neck/Camera/CanvasLayer/UI" node_paths=PackedStringArray("pl") instance=ExtResource("20_60mlk")]
+layout_mode = 1
+offset_left = 55.0
+offset_top = 307.0
+offset_right = -920.0
+offset_bottom = -316.0
+scale = Vector2(2, 2)
+pl = NodePath("../../../../..")
+price = 40
+_name = "long box"
+scene = ExtResource("8_l71n6")
+texture = ExtResource("9_ke2ow")
+
+[node name="Flask" parent="Neck/Camera/CanvasLayer/UI" node_paths=PackedStringArray("pl") instance=ExtResource("20_60mlk")]
+layout_mode = 1
+offset_left = 55.0
+offset_top = 414.0
+offset_right = -920.0
+offset_bottom = -209.0
+scale = Vector2(2, 2)
+pl = NodePath("../../../../..")
+price = 5
+_name = "flask"
+scene = ExtResource("10_dt7fs")
+texture = ExtResource("11_wqfne")
+
+[node name="Crack" type="TextureRect" parent="Neck/Camera/CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 697.0
+offset_top = -104.0
+offset_right = 877.0
+offset_bottom = 216.0
+scale = Vector2(3, 3)
+texture = ExtResource("10_ke2ow")
+
+[node name="Eye" type="Sprite2D" parent="Neck/Camera/CanvasLayer/UI/Crack"]
+z_index = -1
+position = Vector2(118.333, 84.6667)
+texture = ExtResource("11_ujl30")
+
+[node name="PauseScreen" type="Control" parent="Neck/Camera/CanvasLayer" node_paths=PackedStringArray("pl")]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_wnwbv")
+pl = NodePath("../../../..")
+
+[node name="Resume" type="Button" parent="Neck/Camera/CanvasLayer/PauseScreen"]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = -109.0
+offset_right = 201.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "You can also click ESC"
+theme = SubResource("Theme_wnwbv")
+text = "RESUME"
+
+[node name="Retry" type="Button" parent="Neck/Camera/CanvasLayer/PauseScreen"]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -70.0
+offset_right = 202.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Restart from 0?"
+theme = SubResource("Theme_wnwbv")
+text = "RETRY"
+
+[node name="Leave" type="Button" parent="Neck/Camera/CanvasLayer/PauseScreen"]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -31.0
+offset_right = 97.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Go to main menu, you'll lose all your progress"
+theme = SubResource("Theme_wnwbv")
+text = "LEAVE"
+
+[node name="CursorSprite" type="Control" parent="Neck/Camera/CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Hand" type="TextureRect" parent="Neck/Camera/CanvasLayer/CursorSprite" node_paths=PackedStringArray("plr")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -102.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(5, 5)
+pivot_offset = Vector2(70, 92)
+texture = ExtResource("16_a8ls1")
+script = ExtResource("15_oprun")
+plr = NodePath("../../../../..")
+idle_texture = ExtResource("14_f1ej7")
+walk_texture = ExtResource("16_a8ls1")
+grab_texture = ExtResource("17_qfm1y")
+pointing_texture = ExtResource("18_fulsm")
+
+[node name="QuestBackground" type="TextureRect" parent="Neck/Camera/CanvasLayer/CursorSprite"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = -2.0
+offset_top = 21.0
+offset_right = 126.0
+offset_bottom = 53.0
+scale = Vector2(3, 3)
+texture = ExtResource("6_fjrip")
+
+[node name="QuestsLabel" type="Label" parent="Neck/Camera/CanvasLayer/CursorSprite/QuestBackground"]
+layout_mode = 0
+offset_left = 9.8
+offset_top = 3.2
+offset_right = 435.8
+offset_bottom = 107.2
+scale = Vector2(0.3, 0.3)
+text = "1. name : 
+"
+label_settings = SubResource("LabelSettings_dqkch")
+
+[node name="Time" type="TextureRect" parent="Neck/Camera/CanvasLayer/CursorSprite/QuestBackground"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 8.25
+offset_right = 168.0
+offset_bottom = 48.25
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_d2wvv")
+
+[node name="TimerProgress" type="TextureProgressBar" parent="Neck/Camera/CanvasLayer/CursorSprite/QuestBackground/Time"]
+layout_mode = 0
+offset_left = 42.5
+offset_right = 82.5
+offset_bottom = 40.0
+scale = Vector2(5, 5)
+step = 0.001
+value = 100.0
+texture_under = ExtResource("6_jej6c")
+texture_progress = ExtResource("7_f1ej7")
+
+[node name="MoneyContainer" type="TextureRect" parent="Neck/Camera/CanvasLayer/CursorSprite"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 122.0
+offset_right = 34.0
+offset_bottom = 139.0
+scale = Vector2(3, 3)
+texture = ExtResource("6_tuyoq")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="MoneyLabel" type="Label" parent="Neck/Camera/CanvasLayer/CursorSprite/MoneyContainer"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = 1.0
+offset_right = 55.2
+offset_bottom = 27.0
+text = "100 $"
+label_settings = SubResource("LabelSettings_tuyoq")
+
+[node name="DialogueContainer" type="TextureRect" parent="Neck/Camera/CanvasLayer/CursorSprite"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = 161.0
+offset_right = 3.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(96, 0)
+texture = ExtResource("8_smehm")
+
+[node name="DialogueLabel" type="Label" parent="Neck/Camera/CanvasLayer/CursorSprite/DialogueContainer"]
+layout_mode = 0
+offset_left = 3.2
+offset_top = -11.0
+offset_right = 237.2
+offset_bottom = 37.0
+scale = Vector2(0.8, 0.8)
+text = "my dialogue
+"
+label_settings = SubResource("LabelSettings_smehm")
+
+[node name="Space" type="AnimatedSprite2D" parent="Neck/Camera/CanvasLayer/CursorSprite/DialogueContainer"]
+position = Vector2(200.5, 27.75)
+sprite_frames = SubResource("SpriteFrames_3v2ag")
+autoplay = "default"
+frame_progress = 0.892947
+
+[node name="SpaceLabel" type="Label" parent="Neck/Camera/CanvasLayer/CursorSprite/DialogueContainer/Space"]
+offset_left = -6.0
+offset_top = -4.66667
+offset_right = 34.0
+offset_bottom = 18.3333
+scale = Vector2(0.5, 0.5)
+text = "space"
+label_settings = SubResource("LabelSettings_ur7pv")
+
+[node name="Cursor" type="Sprite2D" parent="Neck/Camera/CanvasLayer/CursorSprite"]
+position = Vector2(138, 67)
+scale = Vector2(4, 4)
+texture = ExtResource("2_g2els")
+vframes = 6
+
+[node name="Title" type="Label" parent="Neck/Camera/CanvasLayer/CursorSprite/Cursor"]
+offset_left = -9.75
+offset_top = 1.5
+offset_right = 95.25
+offset_bottom = 53.5
+scale = Vector2(0.2, 0.2)
+text = "name"
+label_settings = SubResource("LabelSettings_g2els")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Neck/Camera/CanvasLayer/CursorSprite/Cursor"]
+offset_left = -16.25
+offset_top = 13.5
+offset_right = 151.75
+offset_bottom = 36.5
+scale = Vector2(0.2, 0.2)
+text = "Description"
+label_settings = SubResource("LabelSettings_qhqgy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Check" type="Sprite2D" parent="Neck/Camera/CanvasLayer/CursorSprite/Cursor"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 0.25)
+texture = ExtResource("10_y4r1p")
+
+[node name="Transition" type="Polygon2D" parent="Neck/Camera/CanvasLayer/CursorSprite"]
+visible = false
+color = Color(0.0941176, 0.0784314, 0.145098, 1)
+polygon = PackedVector2Array(-422, -377, 2089, -338, 2050, 864, -718, 1120)
+script = ExtResource("27_31cv2")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69923, 0)
+current = true
+
+[connection signal="pressed" from="Neck/Camera/CanvasLayer/PauseScreen/Resume" to="Neck/Camera/CanvasLayer/PauseScreen" method="_on_resume_pressed"]
+[connection signal="pressed" from="Neck/Camera/CanvasLayer/PauseScreen/Retry" to="Neck/Camera/CanvasLayer/PauseScreen" method="_on_retry_pressed"]
+[connection signal="pressed" from="Neck/Camera/CanvasLayer/PauseScreen/Leave" to="Neck/Camera/CanvasLayer/PauseScreen" method="_on_leave_pressed"]

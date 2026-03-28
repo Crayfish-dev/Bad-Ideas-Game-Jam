@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=4 uid="uid://dj5g41hy6kkeq"]
+
+[ext_resource type="Script" uid="uid://d25nopctst68t" path="res://scripts/next_npc.gd" id="1_kb0si"]
+[ext_resource type="Texture2D" uid="uid://nhs1e0y3mjp2" path="res://assets/models/Map/NextNPC_0.png" id="2_kb0si"]
+[ext_resource type="AudioStream" uid="uid://bxr1wielgmkev" path="res://assets/SFX/service_bell.mp3" id="3_32e1c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5vxa"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_kb0si")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hd38m"]
+_surfaces = [{
+"aabb": AABB(-0.09375, 5.74053e-18, -0.09375, 0.1875, 0.109375, 0.1875),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("AAABAAIAAAACAAMAAgAEAAMAAAADAAUAAgAGAAQAAgABAAYABgAHAAQACAAAAAUACAABAAAACAAFAAkABgAKAAcABgABAAoACgALAAcADAAIAAkADAABAAgADAAJAA0ACgAOAAsACgABAA4ADgAPAAsAEAABAAwADgABABAAEAAMAA0ADgAQAA8AEAANAA8AEQASABMAEQATABQAEwAVABQAEwAWABUAEwASABYAFQAXABQAEQAUABgAFAAXABgAGQASABEAGQARABgAFgAaABUAGgAXABUAFgASABsAFgAbABoAHAASABkAGwASABwAGQAYAB0AGAAXAB0AHAAZAB0AHgAXABoAGwAeABoAHQAXAB4AGwAcAB4AHAAdAB4A"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 31,
+"vertex_data": PackedByteArray("fKUom4HaAAD/f2zb/38AAIHaKJt8pQAA//8AAAS1AAD//wAA+koAAAS1AAD//wAAgdoom4JaAAAEtQAAAAAAAIJaKJuB2gAA+koAAP//AAB8pSibfSUAAPpKAAAAAAAAfSUom3ylAAAAAAAABLUAAIJaKJt9JQAAAAAAAPpKAAB9JSibgloAAKqKte15kgAA/3////9/AABUlbXt/38AAFSVI8n/fwAAqoojyYVtAACqirXthW0AAP9/2rb/fwAAqoojyXmSAABUdbXteZIAAFR1I8mFbQAAVHW17YVtAACqarXt/38AAFR1I8l5kgAAqmojyf9/AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_32e1c"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.09375, 5.74053e-18, -0.09375, 0.1875, 0.109375, 0.1875),
+"attribute_data": PackedByteArray("Kw0JA/8XcxP6BHYOB2//X/9//28dbP9vFn3/X/oEdg7/F3MTgQZvHPg4/z/wSf9PDjb/TwdH/z+BBm8c/xdzE/gQ0SXpAv9f4RP/bwAA/2/4EP9f+BDRJf8XcxMHH9El+Aj/P/AZ/08PBv9PBxf/Pwcf0SX/F3MTfilvHAc//1//T/9vHjz/bxZN/19+KW8c/xdzEwUrdg74SP8f8Fn/Lw5G/y8HV/8fBSt2Dv8XcxPUIgkD6WL/P+Fz/0//X/9P93D/P+QaAAD/F3MTKw0JA/hIAADwWf8PDkb/DwdXAAD/mf8D/5cAAGWczAD/H/9//y//j/8f/4//L/9/ZZwzL/+X/y//mf8rmYPMgP+H/3//hf+D/z//f/9P/4//P/+P/0//f/+V/0v/l/9PmZMyT/+F/4P/h/9//4n/g/9vAAD/f/8P/2//D/9/AAD/mf9L/5f/T/+V/0v/if+D/4f/f2WMzID/X/9//2//j/9f/4//b/9/ZZwyT/+X/0//mf9LmZPMAP+XAAD/lf8DAAD/f/8P/48AAP+P/w//f/+V/yv/l/8vmZMzL/+V/wP/lwAA/5n/A/9v/x//f/8v/2//L/9//x//mf8r/5f/L/+V/ys="),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUAAwAGAAQABwAIAAkACgALAAwACgANAAsADgAPABAAEQASABMAEQAUABIAFQAWABcAGAAZABoAGAAbABkAHAAdAB4AHwAgACEAHwAiACAAIwAkACUAJgAnACgAJgApACcAKgArACwALQAuAC8ALQAwAC4AMQAyADMANAA1ADYANAA3ADUAOAA5ADoAOwA8AD0AOwA+ADwAPwBAAEEAQgBDAEQARQBGAEcARQBIAEYASQBKAEsATABNAE4ATwBQAFEATwBSAFAAUwBUAFUAVgBXAFgAWQBaAFsAWQBcAFoAXQBeAF8AYABhAGIAYwBkAGUAYwBmAGQAZwBoAGkAagBrAGwAbQBuAG8AbQBwAG4AcQByAHMA"),
+"material": SubResource("StandardMaterial3D_c5vxa"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 116,
+"vertex_data": PackedByteArray("fKUom4HawfL/f2zb/3/B8oHaKJt8pcHyfKUom4HalqP//wAABLWWowS1AAD//5ajgdoom3yllqOB2iibfKWf8f9/bNv/f5/xgdoom4Jan/GB2iibfKWMwf//AAD6SozB//8AAAS1jMGB2iibglqMwYHaKJuCWrX2/39s2/9/tfZ8pSibfSW19oHaKJuCWqTgBLUAAAAApOD//wAA+kqk4HylKJt9JaTgfKUom30l////f2zb/3///4JaKJt9Jf//fKUom30l///6SgAAAAD//wS1AAAAAP//gloom30l//+CWiibfSW19v9/bNv/f7X2fSUom4JatfaCWiibfSWk4AAAAAD6SqTg+koAAAAApOB9JSibglqk4H0lKJuCWp/x/39s2/9/n/F9JSibfKWf8X0lKJuCWozBAAAAAAS1jMEAAAAA+kqMwX0lKJt8pYzBfSUom3ylwfL/f2zb/3/B8oJaKJuB2sHyfSUom3yllqP6SgAA//+WowAAAAAEtZajgloom4HalqOCWiibgdqf+P9/bNv/f5/4fKUom4Han/iCWiibgdr/jwS1AAD///+P+koAAP///498pSibgdr/j6qKte15ksC2/3////9/wLZUlbXt/3/AtqqKte15kqqqVJUjyf9/qqqqiiPJeZKqqlSVte3/f6qqVJUjyf9/wLb/f9q2/3/AtqqKI8l5ksC2VJW17f9/HfD/f////38d8KqKte2FbR3wVJW17f9/VNWqiiPJhW1U1VSVI8n/f1TVqoq17YVtVNWqiiPJhW0d8P9/2rb/fx3wVJUjyf9/HfCqirXthW3///9/////f///VHW17YVt//+qirXthW3//1R1I8mFbf//qoojyYVt//9UdbXthW3//1R1I8mFbf///3/atv9///+qiiPJhW3//1R1te2FbR3w/3////9/HfCqarXt/38d8FR1te2FbVTVqmojyf9/VNVUdSPJhW1U1apqte3/f1TVqmojyf9/HfD/f9q2/38d8FR1I8mFbR3wqmq17f9/wLb/f////3/AtlR1te15ksC2qmq17f9/qqpUdSPJeZKqqqpqI8n/f6qqVHW17XmSqqpUdSPJeZLAtv9/2rb/f8C2qmojyf9/wLZUdbXteZKqqv9/////f6qqqoq17XmSqqpUdbXteZIAgKqKI8l5kgCAVHUjyXmSAICqirXteZIAgKqKI8l5kqqq/3/atv9/qqpUdSPJeZKqqtc1WATXNVgE1zVYBMSzmyTEs5skxLObJMSzmyRWPJ4IVjyeCFY8nghtpDYSbaQ2Em2kNhJtpDYScEWmBnBFpgZwRaYGGZw7CBmcOwgZnDsIGZw7CP9/usz/f7rM/3+6zP9/wur/f8Lq/3/C6v9/wupZeXDFWXlwxVl5cMU6iOXjOojl4zqI5eM6iOXjYHdVvGB3Vbxgd1W8NpKR2zaSkds2kpHbNpKR26Z71rWme9a1pnvWtZqkOsyapDrMmqQ6zJqkOszgzl4F4M5eBeDOXgX///9/////f////3////9/49MIZOPTCGTj0whk/38AAP9/AAD/fwAA/38AAPYb41P2G+NT9hvjU+VDswnlQ7MJ5UOzCf9/AAD/fwAA/38AAP9/AACyiRk8sokZPLKJGTz/fyXR/38l0f9/JdH/f////3////9/////f///2a7//9mu///Zrv//THblw0x25cNMduXD/3////9/////f////3///xm8S/YZvEv2GbxL9gjkG6wI5BusCOQbrP9/////f////3////9///8bLPabGyz2mxss9pv///9/////f////3//f////3////9/////f///AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hd38m")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kb0si"]
+size = Vector3(0.163574, 0.144653, 0.173706)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_32e1c"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("3_32e1c")
+
+[node name="NextNPC" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_kb0si")
+_name = "Service Bell"
+_description = "[E] click to skip client"
+metadata/_custom_type_script = "uid://2k7ijt0c3l7j"
+
+[node name="Model" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_32e1c")
+skeleton = NodePath("")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00463867, 0.0354614, 0.00250244)
+shape = SubResource("BoxShape3D_kb0si")
+
+[node name="Jingle" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_32e1c")

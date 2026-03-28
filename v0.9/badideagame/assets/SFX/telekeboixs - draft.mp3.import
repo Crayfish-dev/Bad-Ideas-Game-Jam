@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dj6rncievfnuh"
+path="res://.godot/imported/telekeboixs - draft.mp3-600f2bd0d3117e0a691b8cb0e4059de9.mp3str"
+
+[deps]
+
+source_file="res://assets/SFX/telekeboixs - draft.mp3"
+dest_files=["res://.godot/imported/telekeboixs - draft.mp3-600f2bd0d3117e0a691b8cb0e4059de9.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

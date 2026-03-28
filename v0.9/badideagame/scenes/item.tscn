@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://re5f8s02001k"]
+
+[ext_resource type="Script" uid="uid://6g74gxcijvkd" path="res://scripts/item_class.gd" id="1_xhhhv"]
+[ext_resource type="AudioStream" uid="uid://bpxu23miln6ta" path="res://assets/SFX/item_pop.wav" id="2_s8enn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4gq7n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xhhhv"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s8enn"]
+streams_count = 1
+stream_0/stream = ExtResource("2_s8enn")
+
+[node name="Item" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 9
+center_of_mass_mode = 1
+script = ExtResource("1_xhhhv")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("BoxMesh_4gq7n")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("BoxShape3D_xhhhv")
+
+[node name="PopSound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_s8enn")
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_s8enn")
+max_db = 2.925
+pitch_scale = 0.2
+panning_strength = 0.5

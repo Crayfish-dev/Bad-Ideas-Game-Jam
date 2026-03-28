@@ -1,0 +1,209 @@
+[gd_scene load_steps=22 format=3 uid="uid://b8euguys5wacw"]
+
+[ext_resource type="PackedScene" uid="uid://dvn01a4dk31am" path="res://scenes/map_components/floor.tscn" id="1_5dd4i"]
+[ext_resource type="AudioStream" uid="uid://dj6rncievfnuh" path="res://assets/SFX/telekeboixs - draft.mp3" id="1_7b55j"]
+[ext_resource type="PackedScene" uid="uid://c4rs2pq1xwhjd" path="res://scenes/map_components/window.tscn" id="2_lgwnu"]
+[ext_resource type="PackedScene" uid="uid://ctqk50s3l15gu" path="res://scenes/map_components/fancy_wall.tscn" id="3_flqon"]
+[ext_resource type="PackedScene" uid="uid://dx244t5pmymxk" path="res://scenes/map_components/delivery_table.tscn" id="5_1ajci"]
+[ext_resource type="PackedScene" uid="uid://dj336c8xm88gn" path="res://scenes/map_components/bell.tscn" id="6_7b55j"]
+[ext_resource type="PackedScene" uid="uid://bdcw4cinxovqn" path="res://scenes/map_components/ceiling.tscn" id="8_j7ex8"]
+[ext_resource type="Script" uid="uid://bjnsp4ggxmhaf" path="res://scripts/main_menu.gd" id="8_tbmy8"]
+[ext_resource type="PackedScene" uid="uid://deaqrgpmrmn66" path="res://scenes/map_components/candle.tscn" id="9_a8gd2"]
+[ext_resource type="Texture2D" uid="uid://cy3d0u1ym5pos" path="res://assets/title.png" id="9_flqon"]
+[ext_resource type="Texture2D" uid="uid://vtmabqep4v76" path="res://assets/cursor.png" id="9_jk1qb"]
+[ext_resource type="FontFile" uid="uid://dvi3njkg60hag" path="res://assets/fonts/ska_cubic01_75_ce/SKA_cubic01_75_CE - Copia.TTF" id="10_5dd4i"]
+[ext_resource type="Script" uid="uid://chm125scwpdc0" path="res://scripts/transition.gd" id="11_lgwnu"]
+[ext_resource type="PackedScene" uid="uid://dcj4jnms5uymk" path="res://assets/models/Map/RightOutside.gltf" id="13_rcqid"]
+[ext_resource type="PackedScene" uid="uid://dj5g41hy6kkeq" path="res://scenes/map_components/next_npc.tscn" id="14_1ajci"]
+[ext_resource type="Script" uid="uid://cu280gs2xisvy" path="res://scripts/cart_spawner.gd" id="16_5pajh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_flqon"]
+sky_top_color = Color(0.257241, 0.311322, 0.38654, 1)
+sky_horizon_color = Color(0.679157, 0.707161, 0.746885, 1)
+ground_bottom_color = Color(0.293049, 0.350987, 0.434664, 1)
+ground_horizon_color = Color(0.679157, 0.707161, 0.746885, 1)
+
+[sub_resource type="Sky" id="Sky_7tq10"]
+sky_material = SubResource("ProceduralSkyMaterial_flqon")
+
+[sub_resource type="Environment" id="Environment_rcqid"]
+background_mode = 2
+sky = SubResource("Sky_7tq10")
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 5.0
+fog_enabled = true
+fog_sun_scatter = 0.5
+fog_density = 0.03
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_emission = Color(0.579691, 0.579691, 0.579691, 1)
+volumetric_fog_emission_energy = 0.8
+volumetric_fog_length = 0.02
+volumetric_fog_detail_spread = 0.5
+adjustment_enabled = true
+adjustment_brightness = 1.06
+adjustment_contrast = 1.7
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ulx81"]
+
+[sub_resource type="Theme" id="Theme_lgwnu"]
+default_font = ExtResource("10_5dd4i")
+
+[node name="MainMap" type="Node3D"]
+
+[node name="Music" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87129, 1.43107)
+stream = ExtResource("1_7b55j")
+volume_db = -30.0
+autoplay = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.999986, -0.00385423, 0.00354415, 0, 0.676876, 0.736097, -0.00523604, 0.736087, -0.676867, 0, 0, 0)
+light_color = Color(0.863239, 0.86324, 0.863239, 1)
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rcqid")
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Floor" parent="Map" instance=ExtResource("1_5dd4i")]
+transform = Transform3D(3, 0, 0, 0, 0.8, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Window" parent="Map" instance=ExtResource("2_lgwnu")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 0, 0, -1)
+
+[node name="FancyWall" parent="Map" instance=ExtResource("3_flqon")]
+transform = Transform3D(-0.8, 0, 6.99382e-08, 0, 0.8, 0, -6.99382e-08, 0, -0.8, 3, 0, -1)
+
+[node name="FancyWall2" parent="Map" instance=ExtResource("3_flqon")]
+transform = Transform3D(-0.8, 0, 6.99382e-08, 0, 0.8, 0, -6.99382e-08, 0, -0.8, -3.17138, 0, -1)
+
+[node name="DeliveryTable" parent="Map" instance=ExtResource("5_1ajci")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0110027, 0.2614, -0.981506)
+
+[node name="Bell" parent="Map" instance=ExtResource("6_7b55j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.569173, 1.51054, -1.46836)
+
+[node name="Shape" type="CollisionShape3D" parent="Map/Bell"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.602441, 0, -0.830499)
+shape = SubResource("BoxShape3D_ulx81")
+
+[node name="Ceiling4" parent="Map" instance=ExtResource("8_j7ex8")]
+transform = Transform3D(0.998534, 0, 0, 0, 0.998534, 0, 0, 0, 3.94293, -0.619781, 3.3263, 6.7995)
+
+[node name="Ceiling12" parent="Map" instance=ExtResource("8_j7ex8")]
+transform = Transform3D(0.998534, 0, 0, 0, 0.998534, 0, 0, 0, 3.94293, -4.23732, 3.10206, 6.7995)
+
+[node name="Ceiling5" parent="Map" instance=ExtResource("8_j7ex8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.86426, 2.95384, 3.33113, 6.61639)
+
+[node name="Ceiling10" parent="Map" instance=ExtResource("8_j7ex8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.76368, 6.41094, 3.98047, 7.57162)
+
+[node name="Ceiling11" parent="Map" instance=ExtResource("8_j7ex8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.65307, 10.0496, 4.00016, 7.34965)
+
+[node name="Ceiling6" parent="Map" instance=ExtResource("8_j7ex8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.53265, 3.32137, 2.5332)
+
+[node name="Ceiling8" parent="Map" instance=ExtResource("8_j7ex8")]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 2.93945, 3.32137, 0.379539)
+
+[node name="Ceiling9" parent="Map" instance=ExtResource("8_j7ex8")]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, -0.627224, 3.32137, 0.379539)
+
+[node name="Candle" parent="Map" instance=ExtResource("9_a8gd2")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.908885, 1.32325, -0.216716)
+
+[node name="NextNPC" parent="Map" instance=ExtResource("14_1ajci")]
+transform = Transform3D(0.116515, 0, 0.993189, 0, 1, 0, -0.993189, 0, 0.116515, -0.749887, 1.3465, -1.05854)
+
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.994421, 0.105483, 0, -0.105483, 0.994421, 0, 1.8774, 0.605431)
+current = true
+fov = 68.6
+
+[node name="Outside" parent="." instance=ExtResource("13_rcqid")]
+transform = Transform3D(-2.62611e-08, 1.75779e-12, 0.6, 0.0307009, 0.599214, 1.34198e-09, -0.599214, 0.0307009, -2.62268e-08, 0.520922, 0.289677, -5.59236)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+script = ExtResource("8_tbmy8")
+
+[node name="Title" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = -205.0
+offset_right = 386.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_flqon")
+
+[node name="Play" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = -79.0
+offset_right = 201.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_lgwnu")
+text = "PLAY"
+
+[node name="Exit" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -32.0
+offset_right = 200.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_lgwnu")
+text = "EXIT"
+
+[node name="Cursor" type="Sprite2D" parent="UI"]
+scale = Vector2(4, 4)
+texture = ExtResource("9_jk1qb")
+centered = false
+vframes = 6
+frame = 1
+
+[node name="Transition" type="Polygon2D" parent="UI"]
+visible = false
+color = Color(0.0941176, 0.0784314, 0.145098, 1)
+polygon = PackedVector2Array(-422, -377, 2089, -338, 2050, 864, -718, 1120)
+script = ExtResource("11_lgwnu")
+
+[node name="CartSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9754, 0, -7.62662)
+script = ExtResource("16_5pajh")
+perc = 70
+
+[connection signal="pressed" from="UI/Play" to="UI" method="_on_play_pressed"]
+[connection signal="pressed" from="UI/Exit" to="UI" method="_on_exit_pressed"]

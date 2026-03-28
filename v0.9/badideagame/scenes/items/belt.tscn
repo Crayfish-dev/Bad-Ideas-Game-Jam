@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=4 uid="uid://7a73f07sh07o"]
+
+[ext_resource type="Script" uid="uid://6g74gxcijvkd" path="res://scripts/item_class.gd" id="1_hc53q"]
+[ext_resource type="Texture2D" uid="uid://7c10ukqfdwg7" path="res://assets/models/Belt_0.png" id="2_nj20t"]
+[ext_resource type="AudioStream" uid="uid://bpxu23miln6ta" path="res://assets/SFX/item_pop.wav" id="3_ma6r1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5yds7"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_nj20t")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_u18t1"]
+_surfaces = [{
+"aabb": AABB(-0.227332, 0.1875, -0.19375, 0.443838, 0.125, 0.38125),
+"format": 34896613377,
+"index_count": 96,
+"index_data": PackedByteArray("CgALAAAAAAAMAAoACgAMAAIACgACAAYABgALAAoADAANAAIABgACAA4AAgANAA4AAQANAAwAAAABAAwADwALAAYABgAOAA8AAAALAAMAAwABAAAAEAALAA8AAwALABAAAwAEAAEABAANAAEAEAAEAAMAEQANAAQAEAARAAQADgANABEABQAQAA8ACQAOABEABwARABAACQARAAcABwAQAAUACAAOAAkACAAJAAcACAAPAA4ACAAHAAUABQAPAAgA"),
+"lods": [0.0932753, PackedByteArray("AAABAAIAAwABAAAAAwAEAAEABAACAAEAAwAAAAUABQAEAAMAAAACAAYABQAHAAQABwACAAQABQAAAAgACAAHAAUACAAAAAYACQACAAcACAAJAAcABgACAAkABgAJAAgA")],
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("jsEAAP//AACOwf////8AAI7B//8yBAAArkQAAP//AACuRP////8AAAAAAADmfQAAjsEAADIEAAAAAP//5n0AAHA+AAAAAAAAcD7//wAAAAD//wAAGIIAAB6DAAAYggAA/////xiCAAAeg///GIIAAK5E//8yBAAArkQAADIEAAA+BgAAGIIAAD4G//8YggAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ma6r1"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.227332, 0.1875, -0.19375, 0.443838, 0.125, 0.38125),
+"attribute_data": PackedByteArray("AAD/rwAA/4//X/+P/1//r+Yi/28ZXWYOGV1lbjAH/z+rJWYOrwL/j1A9/29QPf+PrwL/bwAA/8//L/+v/y//zwAA/6/mgv9PGL2ZUS9n/3+rhZixGL2Ysf9v/x+fqgAAn6r/H/9vAAD/f/8//6//H/+v/z//f/8fz3hmPmJBZj7/L/+P/y//r2KhmYHO2JmBYkFmPs94Zj7/L/+v/y//j87YmYFioZmBqyVlbmJBZj4ZXWVuHDr/bxw6/48YvZlRYqGZgauFmVH1CWY+YkFmPqslZW6rhZlRYqGZgfVpmYFiQWY+9QlmPjJz/x8ycwAA9WmZgWKhmYEZXWYOYkFmPqslZg6rhZixYqGZgRi9mLGrJWVu9QlmPjJz/x8ycwAA9WmZgauFmVEcOv9vHDr/jw=="),
+"format": 34896613399,
+"index_count": 96,
+"index_data": PackedByteArray("HgAfAAUAAAAgACEAAAABACAAFQAiACMABgAkACUAJgACAAMAJgAnAAIAKAApABIAKgArACwACQAtAC4ACQAMAC0ALwAwADEAMgAzADQADQAOAA8ADQAQAA4ANQA2ADcACAA4ADkAOgAXABgAOgA7ABcAPAA9ABQAPgA/AEAAGgAbABwAGgAdABsAQQBCAEMABwBEAAQABwBFAEQAGQBGABYAGQBHAEYAEQBIABMAEQBJAEgACwBKAAoACwBLAEoA"),
+"lods": [0.0932753, PackedByteArray("AAABAAIAAAACAAMABAAFAAYABwAFAAQACAAFAAcACQAKAAsACQAMAAoADQAOAA8ADQAQAA4AEQASABMAEwASABQAFAASABUAFgAXABgAFgAZABcAGgAbABwAGgAdABsA")],
+"material": SubResource("StandardMaterial3D_5yds7"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 76,
+"vertex_data": PackedByteArray("jsEAAP//qqqOwf////+qqo7B//8yBFTVjsEAADIEVNVwPgAAAAD/v47BAAD///+/jsEAADIE/78AAAAA5n3/v65EAAD///+/jsEAADIE//9wPv//AACp6nA+AAAAAKnqjsH//zIE//9wPgAAAABU1QAA///mfVTVAAAAAOZ9VNVwPv//AABU1XA+//8AAP+/jsH//zIE/78AAP//5n3/v65E//////+/jsH//////78AAAAA5n1Ula5E/////6qqrkQAAP//qqoAAP//5n1Ula5EAAD//wCAjsH/////AICOwQAA//8AgK5E/////wCA//8AABiC/78egwAAGIL/v/////8Ygqqq//8AABiCqqoeg///GIL/v/////8Ygv+/HoMAABiC/7///wAAGIL/v///AAAYglTV/////xiCVNX/////GIL/vx6D//8Ygv+/rkQAADIE/78egwAAGIL/v47BAAAyBP+/rkT//zIE//+uRAAAMgT//47B//8yBP+/HoP//xiC/7+uRP//MgT/vz4GAAAYgv+/HoMAABiC/7+uRAAAMgT/v65E//8yBP+/HoP//xiC/78+Bv//GIL/vx6DAAAYgv+/PgYAABiC/78+BgAAGIKqqj4G//8YgqqqPgb//xiC/78eg///GIL/v47BAAD///+/HoMAABiC/7+uRAAA////v65E//////+/HoP//xiC/7+Owf//////v65EAAAyBP+/PgYAABiC/78+BgAAGIJUlT4G//8YglSVPgb//xiC/7+uRP//MgT/v65E//8yBKnqrkQAADIEqer/fwAA/38AAP9/AAD/fwAAAAD/fwAA/38AAP9/AAD/fwAA/3//f////38AAP9/AAD/f////3////9/////f////3////7//3////9//v//f////3////9//3////9/////f////3////9/////f////3////9///8AAP9/AAD/f/9/AAD/fwAA////f////38AAP9/AAD/f/9/AAD/fwAA////f////38AAP9/AAD/fwAA/3//f////3///////3////9//v//fwAA/38AAP9/AAD/f/7//3////9//v//fwAA/38AAP9//3////9////+//9/////fwAA/38AAP9/AAD/f////3////9/////fwAA/38AAP9//3////9////+//9//v//f/9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_u18t1")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nj20t"]
+points = PackedVector3Array(0.111265, 0.3125, 0.168289, -0.118827, 0.1875, -0.18699, -0.115606, 0.3125, -0.181781, -0.118827, 0.1875, 0.166627, 0.208158, 0.1875, -0.00680484, 0.104806, 0.3125, -0.175289, -0.212895, 0.3125, -0.000288989, 0.108027, 0.1875, 0.17999, -0.102607, 0.3125, 0.174781, 0.108027, 0.1875, -0.180309, -0.218958, 0.1875, -0.0134864, 0.202095, 0.3125, 0.00620284, -0.105448, 0.1875, 0.17999, 0.188132, 0.1875, 0.0465037, 0.182637, 0.3125, -0.0456271, -0.199896, 0.3125, -0.0391352, 0.104806, 0.3125, 0.174781, -0.216889, 0.188114, -0.000227171, -0.125516, 0.1875, -0.180309, -0.115606, 0.3125, 0.161797, 0.114674, 0.1875, -0.173627, 0.188132, 0.1875, -0.046858, -0.122106, 0.3125, -0.175289, 0.182637, 0.3125, 0.045084, 0.114674, 0.1875, 0.173309, 0.111265, 0.3125, -0.168797, 0.208158, 0.1875, 0.00648636, -0.205579, 0.1875, -0.0401765, 0.202095, 0.3125, -0.00671101, -0.105448, 0.1875, -0.18699, -0.212895, 0.3125, -0.0132028, -0.102607, 0.3125, -0.181781)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qk4r1"]
+streams_count = 1
+stream_0/stream = ExtResource("3_ma6r1")
+
+[node name="Belt" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 9
+mass = 0.9
+script = ExtResource("1_hc53q")
+_name = "belt"
+_description = "leather and iron "
+metadata/_custom_type_script = "uid://6g74gxcijvkd"
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+mesh = SubResource("ArrayMesh_ma6r1")
+skeleton = NodePath("")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+shape = SubResource("ConvexPolygonShape3D_nj20t")
+
+[node name="PopSound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_qk4r1")
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_ma6r1")
+max_db = 2.925
+pitch_scale = 0.2
+panning_strength = 0.5

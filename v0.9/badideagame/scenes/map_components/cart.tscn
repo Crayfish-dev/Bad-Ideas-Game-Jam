@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://baf5ddsx5nyq5"]
+
+[ext_resource type="PackedScene" uid="uid://dd6bjd16sim8r" path="res://assets/models/Map/Cart.gltf" id="1_fstg1"]
+[ext_resource type="Script" uid="uid://chn6xxadaxy3b" path="res://scripts/cart.gd" id="1_nssh6"]
+[ext_resource type="PackedScene" uid="uid://m4xjvpyw2j7o" path="res://scenes/map_components/horse.tscn" id="2_nssh6"]
+[ext_resource type="PackedScene" uid="uid://bbsdkxhe3t0wq" path="res://assets/models/NPCs/Farmer.gltf" id="3_6ed30"]
+[ext_resource type="AudioStream" uid="uid://ck7toxy6fqegj" path="res://assets/SFX/horse_cart.mp3" id="4_6ed30"]
+
+[node name="Cart" type="Node3D"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+script = ExtResource("1_nssh6")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Cart" parent="Node3D" instance=ExtResource("1_fstg1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0139799, 1.19209e-07, -0.550006)
+
+[node name="Horse" parent="Node3D" instance=ExtResource("2_nssh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0823, 0, -5.09687)
+
+[node name="Audio" type="AudioStreamPlayer3D" parent="Node3D/Horse"]
+transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, -1.0823, 0, 5.09687)
+stream = ExtResource("4_6ed30")
+autoplay = true
+
+[node name="Horse2" parent="Node3D" instance=ExtResource("2_nssh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.721699, -0.0670261, -4.86455)
+
+[node name="blockbench_export" parent="Node3D" instance=ExtResource("3_6ed30")]
+transform = Transform3D(1, 0, 0, 0, 0.999675, 0.0254791, 0, -0.0254791, 0.999675, 0.049628, 0.866949, -2.94867)

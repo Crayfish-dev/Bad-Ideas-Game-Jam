@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=4 uid="uid://b8sd2deg43ddx"]
+
+[ext_resource type="Script" uid="uid://6g74gxcijvkd" path="res://scripts/item_class.gd" id="1_hdgap"]
+[ext_resource type="Texture2D" uid="uid://c704d58k4u8ia" path="res://assets/models/Items/Cheese_0.png" id="2_yxr1l"]
+[ext_resource type="AudioStream" uid="uid://bpxu23miln6ta" path="res://assets/SFX/item_pop.wav" id="3_i1tmx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exp5o"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("2_yxr1l")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mvjiy"]
+_surfaces = [{
+"aabb": AABB(-0.1875, 0.125, -0.5, 0.375, 0.1875, 0.5),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEABQACAAMABQAAAAIAAQAFAAMABQAEAAAAAQAEAAUA"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAAAP//AAD/f6qqAAAAAAAA/////wAA////////AAD/fwAAAAAAAP//AAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i1tmx"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.1875, 0.125, -0.5, 0.375, 0.1875, 0.5),
+"attribute_data": PackedByteArray("/+//L/9f/w//7wAA/1//LwMDAAD8XHohAwOiifGcAHkOQ//fDkNLV//v/7//j/+P/+//j/+P/7//7/8//1//X/9f/y//7/9f"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABwAIAAkACgALAAwACgANAAsADgAPABAADgARAA8A"),
+"material": SubResource("StandardMaterial3D_exp5o"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("AAAAAP//nc7/f6qqAACdzgAA/////53O/38AAAAAnc7///////9r9gAA/////2v2/3+qqgAAa/b//wAA//9Lwf9/AAAAAEvBAAAAAP//S8H//wAA//8AgAAA/////wCA////////AIAAAAAA//8AgP9/qqoAAJ3O//8AAP//nc7///////+dzv9/AAAAAJ3O/3////9/////f////3///yuLDL4riwy+K4sMvggREKIIERCiCBEQov9/////f////3////9/////fwAA/38AAP9/AAD/fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_mvjiy")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yxr1l"]
+points = PackedVector3Array(0.1875, 0.3125, 0, 0.1875, 0.125, 0, -3.67016e-05, 0.249988, -0.5, -0.1875, 0.3125, 0, -0.1875, 0.125, 0, -3.67016e-05, 0.125, -0.5)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3qfig"]
+streams_count = 1
+stream_0/stream = ExtResource("3_i1tmx")
+
+[node name="Cheese" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 9
+mass = 0.9
+script = ExtResource("1_hdgap")
+_name = "cheese"
+_description = "condensated, old milk"
+metadata/_custom_type_script = "uid://6g74gxcijvkd"
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0.1875)
+mesh = SubResource("ArrayMesh_i1tmx")
+skeleton = NodePath("")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0.1875)
+shape = SubResource("ConvexPolygonShape3D_yxr1l")
+
+[node name="PopSound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_3qfig")
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_i1tmx")
+max_db = 2.925
+pitch_scale = 0.2
+panning_strength = 0.5
